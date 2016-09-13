@@ -33,7 +33,7 @@ pull:
 
 notebook_image: pull
 
-build: check-files network volumes
+build: network volumes
 	docker-compose build
 
 up:

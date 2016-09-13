@@ -35,6 +35,22 @@ This deployment is **NOT** intended for a production environment.
    or obtain real ones from [Let's Encrypt](https://letsencrypt.org)
    (see the [letsencrypt example](examples/letsencrypt/README.md) for instructions).
 
+Command to start-up via docker-machine on AWS:
+
+   docker-machine create --driver amazonec2 --amazonec2-instance-type "c4.8xlarge" --amazonec2-root-size "512" --amazonec2-security-group jupyterhub pydata
+
+Where `jupyterhub` is the security group that has the following Incoming
+TCP ports accepting connections from everywhere:
+
+- HTTP (80)
+- Custom (8888) - for testing
+- SSH (22)
+- Docker (2376)
+- HTTPS (443)
+
+With API credentials stored in `~/.aws/credentials` as instructed on the [Docker
+AWS EC2 example](https://docs.docker.com/machine/examples/aws/).
+
 From here on, we'll assume you are set up with docker,
 via a local installation or [docker-machine](./docs/docker-machine.md).
 At this point,

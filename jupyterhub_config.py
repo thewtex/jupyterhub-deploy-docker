@@ -14,6 +14,9 @@ c = get_config()
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 # Spawn containers from this image
 c.DockerSpawner.container_image = os.environ['DOCKER_NOTEBOOK_IMAGE']
+# Spawn user containers from this image
+c.DockerSpawner.container_image = 'insighttoolkit/pydata-carolinas-2016'
+
 # JupyterHub requires a single-user instance of the Notebook server, so we
 # default to using the `start-singleuser.sh` script included in the
 # jupyter/docker-stacks *-notebook images as the Docker run command when
